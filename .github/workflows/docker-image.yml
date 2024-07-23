@@ -10,15 +10,15 @@ jobs:
 
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-v1
 
     steps:
-    - uses: actions/checkout@latest
+    - uses: actions/checkout@v1
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag my-image-name:$(date +%s
 
     - name: Build and push
-      uses: docker/build-push-action@latest
+      uses: docker/build-push-action@v1
       with:
         push: docker push sahil2003/node-js:tagname
         tags: ${{ steps.meta.outputs.tags }}
